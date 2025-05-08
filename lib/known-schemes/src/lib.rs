@@ -1,6 +1,6 @@
 // This is free and unencumbered software released into the public domain.
 
-//! This crate provides an enum of well-known URI/IRI schemes.
+//! This crate provides well-known URI/IRI schemes.
 //!
 //! ```edition2024
 //! # use known_schemes::*;

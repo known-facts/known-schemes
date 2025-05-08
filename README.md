@@ -5,7 +5,7 @@
 [![Package](https://img.shields.io/crates/v/known-schemes)](https://crates.io/crates/known-schemes)
 [![Documentation](https://docs.rs/known-schemes/badge.svg)](https://docs.rs/known-schemes/)
 
-Provides an enum of well-known URI/IRI schemes for Rust.
+Well-known URI/IRI schemes for Rust.
 
 ## ✨ Features
 
