@@ -1,0 +1,27 @@
+# See: https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+members = ["lib/*"]
+default-members = ["lib/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.0"
+authors = ["Arto Bendiken"]
+edition = "2024"
+#rust-version = "1.85"
+description = "Provides an enum of well-known URI/IRI schemes."
+#documentation = "https://docs.rs/known-schemes/"
+readme = true
+homepage = "https://github.com/known-facts/known-schemes"
+repository = "https://github.com/known-facts/known-schemes"
+license = "Unlicense"
+keywords = ["known", "uri", "iri"]
+categories = ["network-programming", "rust-patterns", "no-std"]
+publish = true
+
+[workspace.dependencies]
+known-schemes = { path = "lib/known-schemes" }
+
+[patch.crates-io]
+known-schemes = { path = "lib/known-schemes" }

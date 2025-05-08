@@ -1,0 +1,59 @@
+# See: https://docs.github.com/en/actions/writing-workflows
+---
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check-targets:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+          - name: Windows
+            os: windows-latest
+    name: Check ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Rust
+        id: install-rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.85.0
+          components: rustfmt
+      - name: Build library (default features)
+        if: ${{ always() }}
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --lib
+      - name: Build library (no default features)
+        if: ${{ always() }}
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --lib --no-default-features
+      - name: Build library (all features)
+        if: ${{ always() }}
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --lib --all-features
+      - name: Build library (all features, no std)
+        if: ${{ always() }}
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --lib --no-default-features --features "all"
+      - name: Build library (only std)
+        if: ${{ always() }}
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --lib --no-default-features --features "std"
+      - name: Build examples
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --examples
+      - name: Build tests
+        id: check-tests
+        run: cargo +${{ steps.install-rust.outputs.name }} check --workspace --keep-going --tests
+      - name: Run tests
+        id: run-tests
+        if: ${{ steps.check-tests.outcome == 'success' }}
+        run: |
+          cargo +${{ steps.install-rust.outputs.name }} test --workspace --tests --no-fail-fast
