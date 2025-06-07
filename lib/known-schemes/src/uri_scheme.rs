@@ -12,6 +12,7 @@ pub enum UriScheme {
     Git,
     Http,
     Https,
+    Ipfs,
     Scp,
     Stdin,
     Other(String),
@@ -28,6 +29,7 @@ impl UriScheme {
             Git => "git",
             Http => "http",
             Https => "https",
+            Ipfs => "ipfs",
             Scp => "scp",
             Stdin => "stdin",
             Other(scheme) => scheme.as_str(),
@@ -43,7 +45,7 @@ impl UriScheme {
             Http => 80,
             Https => 443,
             Scp => 22,
-            Data | File | Stdin | Other(_) => return None,
+            Data | File | Ipfs | Stdin | Other(_) => return None,
         })
     }
 }
@@ -61,6 +63,7 @@ impl FromStr for UriScheme {
             "git" => Git,
             "http" => Http,
             "https" => Https,
+            "ipfs" => Ipfs,
             "scp" => Scp,
             "stdin" => Stdin,
             scheme => Other(scheme.into()),
