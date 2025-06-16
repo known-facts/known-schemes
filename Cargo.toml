@@ -8,8 +8,8 @@ resolver = "2"
 [workspace.package]
 version = "0.1.1"
 authors = ["Arto Bendiken"]
-edition = "2024"
-#rust-version = "1.85"
+edition = "2021"
+rust-version = "1.81"
 description = "Well-known URI/IRI schemes."
 #documentation = "https://docs.rs/known-schemes/"
 readme = true

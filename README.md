@@ -1,7 +1,7 @@
 # Known Schemes
 
 [![License](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://unlicense.org)
-[![Compatibility](https://img.shields.io/badge/rust-1.85%2B-blue)](https://blog.rust-lang.org/2025/02/20/Rust-1.85.0/)
+[![Compatibility](https://img.shields.io/badge/rust-1.81%2B-blue)](https://blog.rust-lang.org/2024/09/05/Rust-1.81.0/)
 [![Package](https://img.shields.io/crates/v/known-schemes)](https://crates.io/crates/known-schemes)
 [![Documentation](https://docs.rs/known-schemes/badge.svg)](https://docs.rs/known-schemes/)
 
@@ -15,7 +15,7 @@ Well-known URI/IRI schemes for Rust.
 
 ## 🛠️ Prerequisites
 
-- [Rust](https://rust-lang.org) 1.85+ (2024 edition)
+- [Rust](https://rust-lang.org) 1.81+
 
 ## ⬇️ Installation
 
