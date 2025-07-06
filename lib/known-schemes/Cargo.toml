@@ -23,6 +23,7 @@ unstable = []
 [dev-dependencies]
 
 [dependencies]
+amq-protocol-uri = { version = "8.1", default-features = false, optional = true }
 email_address = { version = "0.2", default-features = false, optional = true }
 fluent-uri = { version = "0.3", default-features = false, optional = true }
 iref = { version = "3.2", default-features = false, optional = true }

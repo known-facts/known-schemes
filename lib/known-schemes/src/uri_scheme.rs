@@ -6,6 +6,8 @@ use super::prelude::{fmt, FromStr, String};
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum UriScheme {
     About,
+    Amqp,
+    Amqps,
     Android,
     Bitcoin,
     Chrome,
@@ -53,6 +55,8 @@ impl UriScheme {
         use UriScheme::*;
         match self {
             About => "about",
+            Amqp => "amqp",
+            Amqps => "amqps",
             Android => "android",
             Bitcoin => "bitcoin",
             Chrome => "chrome",
@@ -99,6 +103,8 @@ impl UriScheme {
     pub fn to_port(&self) -> Option<u16> {
         use UriScheme::*;
         Some(match self {
+            Amqp => 5672,
+            Amqps => 5671,
             Ftp => 21,
             Ftps => 990,
             Git => 9418,
@@ -136,6 +142,8 @@ impl FromStr for UriScheme {
         use UriScheme::*;
         Ok(match input {
             "about" => About,
+            "amqp" => Amqp,
+            "amqps" => Amqps,
             "android" => Android,
             "bitcoin" => Bitcoin,
             "chrome" => Chrome,
@@ -182,6 +190,9 @@ impl fmt::Display for UriScheme {
         write!(f, "{}", self.as_str())
     }
 }
+
+#[cfg(feature = "amq-protocol-uri")]
+include!("integrations/amq_protocol_uri.rs");
 
 #[cfg(feature = "email_address")]
 include!("integrations/email_address.rs");
