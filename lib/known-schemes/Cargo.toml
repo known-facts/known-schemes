@@ -23,3 +23,4 @@ unstable = []
 [dev-dependencies]
 
 [dependencies]
+url = { version = "2.5", default-features = false, optional = true }

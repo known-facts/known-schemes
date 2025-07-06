@@ -182,3 +182,11 @@ impl fmt::Display for UriScheme {
         write!(f, "{}", self.as_str())
     }
 }
+
+#[cfg(feature = "url")]
+impl From<url::Url> for UriScheme {
+    fn from(input: url::Url) -> Self {
+        let input_scheme = input.scheme();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
