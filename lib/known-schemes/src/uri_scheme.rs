@@ -28,6 +28,7 @@ pub enum UriScheme {
     Ipfs,
     Irc,
     Ircs,
+    Magnet,
     Mailto,
     Matrix,
     Redis,
@@ -77,6 +78,7 @@ impl UriScheme {
             Ipfs => "ipfs",
             Irc => "irc",
             Ircs => "ircs",
+            Magnet => "magnet",
             Mailto => "mailto",
             Matrix => "matrix",
             Redis => "redis",
@@ -128,9 +130,8 @@ impl UriScheme {
             Wss => 443,
             Xmpp => 5222,
             About | Android | Bitcoin | Chrome | ChromeExtension | Dat | Data | Did | Doi
-            | Example | File | Ipfs | Mailto | Sms | Stdin | Tag | Tel | Urn | Other(_) => {
-                return None
-            }
+            | Example | File | Ipfs | Magnet | Mailto | Sms | Stdin | Tag | Tel | Urn
+            | Other(_) => return None,
         })
     }
 }
@@ -164,6 +165,7 @@ impl FromStr for UriScheme {
             "ipfs" => Ipfs,
             "irc" => Irc,
             "ircs" => Ircs,
+            "magnet" => Magnet,
             "mailto" => Mailto,
             "matrix" => Matrix,
             "redis" => Redis,
@@ -205,6 +207,9 @@ include!("integrations/iref.rs");
 
 #[cfg(feature = "iri-string")]
 include!("integrations/iri_string.rs");
+
+#[cfg(feature = "magnet-url")]
+include!("integrations/magnet_url.rs");
 
 #[cfg(feature = "oxiri")]
 include!("integrations/oxiri.rs");

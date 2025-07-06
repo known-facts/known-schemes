@@ -389,6 +389,7 @@ dependencies = [
  "fluent-uri",
  "iref",
  "iri-string",
+ "magnet-url",
  "oxiri",
  "uriparse",
  "url",
@@ -411,6 +412,12 @@ name = "litemap"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "241eaef5fd12c88705a01fc1066c48c4b36e0dd4377dcdc7ec3942cea7a69956"
+
+[[package]]
+name = "magnet-url"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b2ab81d03e8f70deb7e21ac2f47f6cc9fe9a20a4fe06acc20cb90e8d346537ae"
 
 [[package]]
 name = "memchr"
