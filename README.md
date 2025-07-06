@@ -32,14 +32,14 @@ cargo add known-schemes
 
 ```toml
 [dependencies]
-known-schemes = "0.1"
+known-schemes = "0.2"
 ```
 
 ### Installation in `Cargo.toml` (with only specific features enabled)
 
 ```toml
 [dependencies]
-known-schemes = { version = "0.1", default-features = false, features = ["serde"] }
+known-schemes = { version = "0.2", default-features = false, features = ["serde"] }
 ```
 
 ## 👉 Examples
