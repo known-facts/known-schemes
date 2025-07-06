@@ -206,6 +206,38 @@ impl From<fluent_uri::Uri<String>> for UriScheme {
     }
 }
 
+#[cfg(feature = "iref")]
+impl From<&iref::Iri> for UriScheme {
+    fn from(input: &iref::Iri) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
+#[cfg(feature = "iref")]
+impl From<&iref::IriBuf> for UriScheme {
+    fn from(input: &iref::IriBuf) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
+#[cfg(feature = "iref")]
+impl From<&iref::Uri> for UriScheme {
+    fn from(input: &iref::Uri) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
+#[cfg(feature = "iref")]
+impl From<&iref::UriBuf> for UriScheme {
+    fn from(input: &iref::UriBuf) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
 #[cfg(feature = "uriparse")]
 impl From<uriparse::URI<'_>> for UriScheme {
     fn from(input: uriparse::URI) -> Self {
