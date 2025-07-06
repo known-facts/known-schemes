@@ -206,6 +206,14 @@ impl From<fluent_uri::Uri<String>> for UriScheme {
     }
 }
 
+#[cfg(feature = "uriparse")]
+impl From<uriparse::URI<'_>> for UriScheme {
+    fn from(input: uriparse::URI) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
 #[cfg(feature = "url")]
 impl From<url::Url> for UriScheme {
     fn from(input: url::Url) -> Self {
