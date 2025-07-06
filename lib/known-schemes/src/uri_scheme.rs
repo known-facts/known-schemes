@@ -54,6 +54,53 @@ pub enum UriScheme {
 }
 
 impl UriScheme {
+    pub const ALL: &'static [Self] = &[
+        Self::About,
+        Self::Amqp,
+        Self::Amqps,
+        Self::Android,
+        Self::Bitcoin,
+        Self::Chrome,
+        Self::ChromeExtension,
+        Self::Dat,
+        Self::Data,
+        Self::Did,
+        Self::Doi,
+        Self::Example,
+        Self::File,
+        Self::Ftp,
+        Self::Ftps,
+        Self::Git,
+        Self::Http,
+        Self::Https,
+        Self::Imap,
+        Self::Imaps,
+        Self::Ipfs,
+        Self::Irc,
+        Self::Ircs,
+        Self::Magnet,
+        Self::Mailto,
+        Self::Matrix,
+        Self::Redis,
+        Self::Rediss,
+        Self::Scp,
+        Self::Sftp,
+        Self::Sms,
+        Self::Smtp,
+        Self::Smtps,
+        Self::Ssh,
+        Self::Stdin,
+        Self::Tag,
+        Self::Tel,
+        Self::Telnet,
+        Self::Tftp,
+        Self::Urn,
+        Self::Ws,
+        Self::Wss,
+        Self::Xmpp,
+        //Self::Other(String),
+    ];
+
     pub fn as_str(&self) -> &str {
         use UriScheme::*;
         match self {
@@ -200,6 +247,9 @@ include!("integrations/ada_url.rs");
 
 #[cfg(feature = "amq-protocol-uri")]
 include!("integrations/amq_protocol_uri.rs");
+
+#[cfg(feature = "clap")]
+include!("integrations/clap.rs");
 
 #[cfg(feature = "email_address")]
 include!("integrations/email_address.rs");

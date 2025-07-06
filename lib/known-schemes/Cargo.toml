@@ -25,6 +25,10 @@ unstable = []
 [dependencies]
 ada-url = { version = "3.2", default-features = false, optional = true }
 amq-protocol-uri = { version = "8.1", default-features = false, optional = true }
+clap = { version = "4.5", default-features = false, features = [
+    "std",
+    "string",
+], optional = true }
 email_address = { version = "0.2", default-features = false, optional = true }
 fluent-uri = { version = "0.3", default-features = false, optional = true }
 iref = { version = "3.2", default-features = false, optional = true }
