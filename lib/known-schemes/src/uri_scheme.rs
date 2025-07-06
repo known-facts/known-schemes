@@ -192,6 +192,9 @@ include!("integrations/fluent_uri.rs");
 #[cfg(feature = "iref")]
 include!("integrations/iref.rs");
 
+#[cfg(feature = "iri-string")]
+include!("integrations/iri_string.rs");
+
 #[cfg(feature = "uriparse")]
 include!("integrations/uriparse.rs");
 
