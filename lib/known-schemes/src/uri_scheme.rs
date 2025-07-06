@@ -193,6 +193,9 @@ impl fmt::Display for UriScheme {
     }
 }
 
+#[cfg(feature = "ada-url")]
+include!("integrations/ada_url.rs");
+
 #[cfg(feature = "amq-protocol-uri")]
 include!("integrations/amq_protocol_uri.rs");
 
