@@ -9,6 +9,9 @@ Well-known URI/IRI schemes for Rust.
 
 ## ✨ Features
 
+- Exports an enum for all well-known URI/IRI schemes (protocols).
+- Integrates seamlessly with popular crates like [Serde] and [Clap].
+- Integrates seamlessly with all URI/IRI crates.
 - Supports opting out of any feature using comprehensive [feature flags].
 - Adheres to the Rust API Guidelines in its [naming conventions].
 - 100% free and unencumbered public domain software.
@@ -65,5 +68,7 @@ git clone https://github.com/known-facts/known-schemes.git
 [![Share on Facebook](https://img.shields.io/badge/share%20on-fb-1976D2?logo=facebook)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/known-facts/known-schemes)
 [![Share on LinkedIn](https://img.shields.io/badge/share%20on-linkedin-3949AB?logo=linkedin)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/known-facts/known-schemes)
 
+[Serde]: https://crates.io/crates/serde
+[Clap]: https://crates.io/crates/clap
 [feature flags]: https://github.com/known-facts/known-schemes/blob/master/lib/known-schemes/Cargo.toml
 [naming conventions]: https://rust-lang.github.io/api-guidelines/naming.html
