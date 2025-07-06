@@ -16,7 +16,7 @@ publish.workspace = true
 
 [features]
 default = ["all", "std"]
-std = []
+std = ["serde?/std"]
 all = []
 unstable = []
 
@@ -31,5 +31,8 @@ iref = { version = "3.2", default-features = false, optional = true }
 iri-string = { version = "0.7", default-features = false, optional = true }
 magnet-url = { version = "3.0", default-features = false, optional = true }
 oxiri = { version = "0.2", default-features = false, optional = true }
+serde = { version = "1", default-features = false, features = [
+    "derive",
+], optional = true }
 uriparse = { version = "0.6", default-features = false, optional = true }
 url = { version = "2.5", default-features = false, optional = true }

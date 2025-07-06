@@ -4,6 +4,8 @@ use super::prelude::{fmt, FromStr, String};
 
 /// An enumerated URI scheme.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(rename_all = "kebab-case"))]
 pub enum UriScheme {
     About,
     Amqp,

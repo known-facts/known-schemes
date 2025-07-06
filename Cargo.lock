@@ -483,6 +483,7 @@ dependencies = [
  "iri-string",
  "magnet-url",
  "oxiri",
+ "serde",
  "uriparse",
  "url",
 ]
