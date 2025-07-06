@@ -184,72 +184,16 @@ impl fmt::Display for UriScheme {
 }
 
 #[cfg(feature = "email_address")]
-impl From<email_address::EmailAddress> for UriScheme {
-    fn from(_input: email_address::EmailAddress) -> Self {
-        Self::Mailto
-    }
-}
+include!("integrations/email_address.rs");
 
 #[cfg(feature = "fluent-uri")]
-impl From<fluent_uri::Uri<&str>> for UriScheme {
-    fn from(input: fluent_uri::Uri<&str>) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
-
-#[cfg(feature = "fluent-uri")]
-impl From<fluent_uri::Uri<String>> for UriScheme {
-    fn from(input: fluent_uri::Uri<String>) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
+include!("integrations/fluent_uri.rs");
 
 #[cfg(feature = "iref")]
-impl From<&iref::Iri> for UriScheme {
-    fn from(input: &iref::Iri) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
-
-#[cfg(feature = "iref")]
-impl From<&iref::IriBuf> for UriScheme {
-    fn from(input: &iref::IriBuf) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
-
-#[cfg(feature = "iref")]
-impl From<&iref::Uri> for UriScheme {
-    fn from(input: &iref::Uri) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
-
-#[cfg(feature = "iref")]
-impl From<&iref::UriBuf> for UriScheme {
-    fn from(input: &iref::UriBuf) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
+include!("integrations/iref.rs");
 
 #[cfg(feature = "uriparse")]
-impl From<uriparse::URI<'_>> for UriScheme {
-    fn from(input: uriparse::URI) -> Self {
-        let input_scheme = input.scheme().as_str();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
+include!("integrations/uriparse.rs");
 
 #[cfg(feature = "url")]
-impl From<url::Url> for UriScheme {
-    fn from(input: url::Url) -> Self {
-        let input_scheme = input.scheme();
-        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
-    }
-}
+include!("integrations/url.rs");
