@@ -183,6 +183,13 @@ impl fmt::Display for UriScheme {
     }
 }
 
+#[cfg(feature = "email_address")]
+impl From<email_address::EmailAddress> for UriScheme {
+    fn from(_input: email_address::EmailAddress) -> Self {
+        Self::Mailto
+    }
+}
+
 #[cfg(feature = "fluent-uri")]
 impl From<fluent_uri::Uri<&str>> for UriScheme {
     fn from(input: fluent_uri::Uri<&str>) -> Self {
