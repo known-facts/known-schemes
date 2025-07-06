@@ -195,6 +195,9 @@ include!("integrations/iref.rs");
 #[cfg(feature = "iri-string")]
 include!("integrations/iri_string.rs");
 
+#[cfg(feature = "oxiri")]
+include!("integrations/oxiri.rs");
+
 #[cfg(feature = "uriparse")]
 include!("integrations/uriparse.rs");
 

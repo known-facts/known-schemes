@@ -353,6 +353,7 @@ dependencies = [
  "fluent-uri",
  "iref",
  "iri-string",
+ "oxiri",
  "uriparse",
  "url",
 ]
@@ -396,6 +397,12 @@ dependencies = [
  "memchr",
  "minimal-lexical",
 ]
+
+[[package]]
+name = "oxiri"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "54b4ed3a7192fa19f5f48f99871f2755047fabefd7f222f12a1df1773796a102"
 
 [[package]]
 name = "pct-str"
