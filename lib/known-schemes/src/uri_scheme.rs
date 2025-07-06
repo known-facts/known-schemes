@@ -183,6 +183,22 @@ impl fmt::Display for UriScheme {
     }
 }
 
+#[cfg(feature = "fluent-uri")]
+impl From<fluent_uri::Uri<&str>> for UriScheme {
+    fn from(input: fluent_uri::Uri<&str>) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
+#[cfg(feature = "fluent-uri")]
+impl From<fluent_uri::Uri<String>> for UriScheme {
+    fn from(input: fluent_uri::Uri<String>) -> Self {
+        let input_scheme = input.scheme().as_str();
+        Self::from_str(input_scheme).unwrap_or_else(|_| Self::Other(input_scheme.into()))
+    }
+}
+
 #[cfg(feature = "url")]
 impl From<url::Url> for UriScheme {
     fn from(input: url::Url) -> Self {

@@ -23,4 +23,5 @@ unstable = []
 [dev-dependencies]
 
 [dependencies]
+fluent-uri = { version = "0.3", default-features = false, optional = true }
 url = { version = "2.5", default-features = false, optional = true }
