@@ -504,7 +504,7 @@ dependencies = [
 
 [[package]]
 name = "known-schemes"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "ada-url",
  "amq-protocol-uri",

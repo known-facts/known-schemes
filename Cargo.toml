@@ -6,12 +6,12 @@ default-members = ["lib/*"]
 resolver = "2"
 
 [workspace.package]
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Arto Bendiken"]
 edition = "2021"
 rust-version = "1.81"
 description = "Well-known URI/IRI schemes."
-#documentation = "https://docs.rs/known-schemes/"
+#documentation = "https://docs.rs/known-schemes"
 readme = true
 homepage = "https://github.com/known-facts/known-schemes"
 repository = "https://github.com/known-facts/known-schemes"

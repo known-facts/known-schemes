@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://unlicense.org)
 [![Compatibility](https://img.shields.io/badge/rust-1.81%2B-blue)](https://blog.rust-lang.org/2024/09/05/Rust-1.81.0/)
 [![Package](https://img.shields.io/crates/v/known-schemes)](https://crates.io/crates/known-schemes)
-[![Documentation](https://docs.rs/known-schemes/badge.svg)](https://docs.rs/known-schemes/)
+[![Documentation](https://docs.rs/known-schemes/badge.svg)](https://docs.rs/known-schemes)
 
 Well-known [URI/IRI schemes] for Rust.
 
@@ -52,7 +52,7 @@ use known_schemes;
 
 ## 📚 Reference
 
-https://docs.rs/known-schemes/
+https://docs.rs/known-schemes
 
 ## 👨‍💻 Development
 
