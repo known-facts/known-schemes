@@ -3,6 +3,8 @@
 use super::prelude::{fmt, FromStr, String};
 
 /// An enumerated URI scheme.
+///
+/// See: https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "kebab-case"))]
@@ -33,6 +35,7 @@ pub enum UriScheme {
     Magnet,
     Mailto,
     Matrix,
+    Mid,
     Redis,
     Rediss,
     Scp,
@@ -81,6 +84,7 @@ impl UriScheme {
         Self::Magnet,
         Self::Mailto,
         Self::Matrix,
+        Self::Mid,
         Self::Redis,
         Self::Rediss,
         Self::Scp,
@@ -130,6 +134,7 @@ impl UriScheme {
             Magnet => "magnet",
             Mailto => "mailto",
             Matrix => "matrix",
+            Mid => "mid",
             Redis => "redis",
             Rediss => "rediss",
             Scp => "scp",
@@ -179,7 +184,7 @@ impl UriScheme {
             Wss => 443,
             Xmpp => 5222,
             About | Android | Bitcoin | Chrome | ChromeExtension | Dat | Data | Did | Doi
-            | Example | File | Ipfs | Magnet | Mailto | Sms | Stdin | Tag | Tel | Urn
+            | Example | File | Ipfs | Magnet | Mailto | Mid | Sms | Stdin | Tag | Tel | Urn
             | Other(_) => return None,
         })
     }
@@ -217,6 +222,7 @@ impl FromStr for UriScheme {
             "magnet" => Magnet,
             "mailto" => Mailto,
             "matrix" => Matrix,
+            "mid" => Mid,
             "redis" => Redis,
             "rediss" => Rediss,
             "scp" => Scp,
